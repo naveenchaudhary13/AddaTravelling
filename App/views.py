@@ -238,7 +238,7 @@ def search_hotels(request, hotel_id):
 
 
 def tour(request):
-    allvideo = Video.objects.all().defer('url')
+    allvideo = Video.objects.all().order_by("v_id")
     paginator = Paginator(allvideo,15)
     page_number = request.GET.get('page')
     try:

@@ -6,7 +6,7 @@ class Video(models.Model):
     v_id = models.IntegerField(default=0)
     title = models.CharField(max_length=100, default="")
     rating = models.CharField(max_length=100, default="")
-    url = models.URLField(default="")
+    file = models.FileField(upload_to='videos/')
     
     def __str__(self):
         return self.title

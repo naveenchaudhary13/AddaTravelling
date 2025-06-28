@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -92,22 +92,11 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     #========================== Postgresql databse ==========================
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'defaultdb',
-       'USER': 'avnadmin',
-       'PASSWORD': 'AVNS_7EcL8RkvPgsiYCDSq1O',
-       'HOST': 'addatravelling-addatravellingdb.a.aivencloud.com',
-       'PORT': '24132',
-    }
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'postgres',
-    #    'USER': 'postgres',
-    #    'PASSWORD': 'Ndnaveen@143',
-    #    'HOST': 'db.bhltgggwptthswljufgv.supabase.co',
-    #    'PORT': '5432',
-    # }
+    'default': dj_database_url.parse(
+        os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
