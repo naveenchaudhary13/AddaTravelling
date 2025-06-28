@@ -1882,3 +1882,12 @@ button[type="submit"]:hover {
     position: relative;
     z-index: 2;
 }
+
+.plyr--video {
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.plyr__controls {
+    background: rgba(0, 0, 0, 0.5);
+}

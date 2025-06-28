@@ -75,9 +75,8 @@
             <div class="video__container container">
                 <div class="video__content">
                     {% if item.file %}
-                    <video controls width="750px" height="100%">
-                        <source src="{{ item.file.url }}" type="video/mp4">
-                        Your browser does not support the video tag.
+                    <video class="js-player" playsinline controls>
+                        <source src="{{ item.file.url }}" type="video/mp4" />
                     </video>
                     {% else %}
                     <p>No video available.</p>
